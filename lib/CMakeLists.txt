@@ -95,6 +95,13 @@ set_target_properties(${LIB_NAME}
     COMPILE_PDB_NAME ${LIB_NAME}
     COMPILE_PDB_NAME_DEBUG ${LIB_NAME}d
 )
+
+target_compile_options(${LIB_NAME} PRIVATE /MP)
+target_link_options(${LIB_NAME}
+  PRIVATE
+    /INCREMENTAL:NO
+    /debug:full
+)
 install(
   FILES ${CMAKE_BINARY_DIR}/RelWithDebInfo/${LIB_NAME}.pdb
   DESTINATION lib
