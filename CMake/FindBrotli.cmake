@@ -2,8 +2,8 @@ include(FindPackageHandleStandardArgs)
 
 find_path(BROTLI_INCLUDE_DIR "brotli/decode.h")
 
-find_library(BROTLICOMMON_LIBRARY NAMES brotlicommon)
-find_library(BROTLIDEC_LIBRARY NAMES brotlidec)
+find_library(BROTLICOMMON_LIBRARY NAMES brotlicommon-static brotlicommon)
+find_library(BROTLIDEC_LIBRARY NAMES brotlidec-static brotlidec)
 
 find_package_handle_standard_args(BROTLI
     FOUND_VAR
