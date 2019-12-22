@@ -90,6 +90,8 @@ endif()
 set(curl_cv_func_recv_args "${curl_cv_func_recv_args}" CACHE INTERNAL "Arguments for recv")
 set(HAVE_RECV 1)
 
+# For some reason this test sometimes hangs msbuild so disable it for now
+if(0)
 check_c_source_compiles("${_source_epilogue}
 int main(void) {
     send(0, 0, 0, 0);
@@ -156,6 +158,15 @@ else()
   message(FATAL_ERROR "Unable to link function send")
 endif()
 set(curl_cv_func_send_args "${curl_cv_func_send_args}" CACHE INTERNAL "Arguments for send")
+endif(0)
+set(SEND_TYPE_ARG1 "SOCKET")
+set(SEND_QUAL_ARG2 "const")
+set(SEND_TYPE_ARG2 "char*")
+set(SEND_TYPE_ARG3 "int")
+set(SEND_TYPE_ARG4 "int")
+set(SEND_TYPE_RETV "int")
+set(HAVE_SEND 1)
+set(curl_cv_func_send_done 1)
 set(HAVE_SEND 1)
 
 check_c_source_compiles("${_source_epilogue}
