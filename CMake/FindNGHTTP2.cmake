@@ -2,7 +2,7 @@ include(FindPackageHandleStandardArgs)
 
 find_path(NGHTTP2_INCLUDE_DIR "nghttp2/nghttp2.h")
 
-find_library(NGHTTP2_LIBRARY NAMES nghttp2)
+find_library(NGHTTP2_LIBRARY NAMES nghttp2_static nghttp2)
 
 find_package_handle_standard_args(NGHTTP2
     FOUND_VAR
